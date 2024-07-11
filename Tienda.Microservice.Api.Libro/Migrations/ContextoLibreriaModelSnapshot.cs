@@ -24,12 +24,14 @@ namespace Tienda.Microservice.Api.Libro.Migrations
 
             modelBuilder.Entity("Tienda.Microservice.Api.Libro.Modelo.LibreriaMaterial", b =>
                 {
-                    b.Property<Guid?>("Id")
+                    b.Property<int?>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uuid");
+                        .HasColumnType("integer");
 
-                    b.Property<Guid?>("AutorLibro")
-                        .HasColumnType("uuid");
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int?>("Id"));
+
+                    b.Property<int?>("AutorLibro")
+                        .HasColumnType("integer");
 
                     b.Property<int>("Cantidad")
                         .HasColumnType("integer");

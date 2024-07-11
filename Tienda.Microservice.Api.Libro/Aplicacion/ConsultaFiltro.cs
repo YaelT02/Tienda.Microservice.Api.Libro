@@ -10,7 +10,7 @@ namespace Tienda.Microservice.Api.Libro.Aplicacion
     {
         public class LibroUnico : IRequest<LibroMaterialDto>
         {
-            public Guid LibroId { get; set; }
+            public int LibroId { get; set; }
         }
 
         public class Manejador : IRequestHandler<LibroUnico, LibroMaterialDto>

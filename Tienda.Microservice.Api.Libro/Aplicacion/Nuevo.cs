@@ -12,7 +12,7 @@ namespace Tienda.Microservice.Api.Libro.Aplicacion
             public string Titulo { get; set; }
             public DateTime? FechaPublicacion { get; set; }
             public int Cantidad { get; set; }
-            public Guid AutorLibro { get; set; }
+            public int AutorLibro { get; set; }
         }
 
         public class EjecutaValidacion : AbstractValidator<Ejecuta>

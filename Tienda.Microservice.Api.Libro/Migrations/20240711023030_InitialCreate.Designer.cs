@@ -12,7 +12,7 @@ using Tienda.Microservice.Api.Libro.Persistencia;
 namespace Tienda.Microservice.Api.Libro.Migrations
 {
     [DbContext(typeof(ContextoLibreria))]
-    [Migration("20240707220731_InitialCreate")]
+    [Migration("20240711023030_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -27,12 +27,14 @@ namespace Tienda.Microservice.Api.Libro.Migrations
 
             modelBuilder.Entity("Tienda.Microservice.Api.Libro.Modelo.LibreriaMaterial", b =>
                 {
-                    b.Property<Guid?>("Id")
+                    b.Property<int?>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uuid");
+                        .HasColumnType("integer");
 
-                    b.Property<Guid?>("AutorLibro")
-                        .HasColumnType("uuid");
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int?>("Id"));
+
+                    b.Property<int?>("AutorLibro")
+                        .HasColumnType("integer");
 
                     b.Property<int>("Cantidad")
                         .HasColumnType("integer");

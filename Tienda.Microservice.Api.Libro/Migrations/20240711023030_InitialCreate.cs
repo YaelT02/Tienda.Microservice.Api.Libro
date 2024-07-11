@@ -1,5 +1,6 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
+using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 #nullable disable
 
@@ -15,11 +16,12 @@ namespace Tienda.Microservice.Api.Libro.Migrations
                 name: "LibreriaMaterial",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(type: "uuid", nullable: false),
+                    Id = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     Titulo = table.Column<string>(type: "text", nullable: false),
                     FechaPublicacion = table.Column<DateTime>(type: "timestamp with time zone", nullable: true),
                     Cantidad = table.Column<int>(type: "integer", nullable: false),
-                    AutorLibro = table.Column<Guid>(type: "uuid", nullable: true)
+                    AutorLibro = table.Column<int>(type: "integer", nullable: true)
                 },
                 constraints: table =>
                 {
